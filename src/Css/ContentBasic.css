@@ -57,6 +57,11 @@ a:hover {
   margin-top: 50px;
 }
 
+img {
+  width: 480px;
+  height: 360px;
+}
+
 /* 모바일 기기 세로
   @media screen and(max-width: 420px) {
     .content {

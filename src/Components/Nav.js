@@ -14,7 +14,7 @@ const Nav = () => {
                 <li><Link to="/France">France</Link></li>
                 <li><Link to="/Italy">Italy</Link></li>
                 <li><Link to="/korea">korea</Link></li>
-                <li><Link to="/etc">etc</Link></li>
+                <li><Link to="/CROATIA">croatia</Link></li>
             </ul>
         </div>
     );

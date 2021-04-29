@@ -4,6 +4,7 @@ import axios from 'axios';
 import ContentBasic from './Components/ContentBasic'
 import Home from './Components/Home'
 import Nav from './Components/Nav'
+import Spinner from './Components/Spinner'
 import { BrowserRouter as Router,
           Switch,Route} 
           from 'react-router-dom'
@@ -11,15 +12,20 @@ import { BrowserRouter as Router,
 
 function App() {
 
+
+  const [loading,setLoading]=useState(true);
+
   useEffect(()=>{
     axios.get('https://www.scorebat.com/video-api/v1/').then((Response)=>{
             setTeam(Response.data);
+            setLoading(false);
         }).catch((Error)=>{
             console.log(Error);
         })
   },[])
   
   const [team,setTeam]=useState([]);
+ 
 
   return (
     <Router>
@@ -29,17 +35,18 @@ function App() {
           <Route path="/" exact>
               <Home/>
           </Route>
-          <Route path="/England">
-              <ContentBasic team={team}></ContentBasic>
+          <Route path="/:nation" children={<ContentBasic/>}>
+              {loading ?<Spinner/> : <ContentBasic team={team}></ContentBasic> }
           </Route>
-          <Route path="/Spain">
+          {/* <Route path="/Spain">
               <h3>hello</h3>
           </Route>
-          <Route path="/Germany"></Route>
-          <Route path="/France"></Route>
+          <Route path="/Germany">
+          </Route> */}
+          {/* <Route path="/France"></Route>
           <Route path="/Italy"></Route>
           <Route path="/korea"></Route>
-          <Route path="/etc"></Route>
+          <Route path="/etc"></Route> */}
       </Switch>
       </div>
     </Router>

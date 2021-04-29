@@ -1,8 +1,11 @@
 import React from 'react';
 import '../Css/ContentBasic.css'
+import {useParams} from 'react-router-dom'
 
 //영국 리그 페이지
 const ENGLAND='ENGLAND'
+const COPA='COPA'
+
 
 // 어제의 날짜 만들기
 let nowday = new Date();  
@@ -11,12 +14,16 @@ export let nowtoday=nowday.getFullYear()+"-"+((nowday.getMonth()+1)>10?(nowday.g
 // 사이트 이동 함수
 function href(name){
     name=name.replace(" ","-")
+    name=name.toLowerCase()
     // console.log(name)
     return "https://www.scorebat.com/live-stream/"+name
 }
 
 
 const ContentBasic = ({team}) => {
+
+    let {nation}=useParams();
+    console.log(nation);
 
     return (
         <>
@@ -25,9 +32,9 @@ const ContentBasic = ({team}) => {
             ({nowtoday})
         <div className="content">
             {team.map(soc =>{
-                if((soc.date).includes(nowtoday)&&(soc.competition.name).includes(ENGLAND)){
-                    
-                    return ( 
+                if((soc.date).includes(nowtoday)&&(soc.competition.name).includes(COPA))
+                {                  
+                        return ( 
     <>
         <div className="container">
             <div className="itmes">
