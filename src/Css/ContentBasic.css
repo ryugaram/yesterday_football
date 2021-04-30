@@ -18,7 +18,7 @@ a:hover {
 }
 .homeawaycon {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 
 .eachflex {
@@ -33,6 +33,7 @@ a:hover {
 .videoflex {
   display: flex;
   justify-content: center;
+  margin-bottom: 50px;
 }
 .video {
   align-items: center;
@@ -54,12 +55,16 @@ a:hover {
   width: 50%;
 }
 .itmes {
-  margin-top: 50px;
+  margin-top: 100px;
 }
 
-img {
+.video {
   width: 480px;
   height: 360px;
+}
+iframe {
+  /* width: 480px; */
+  height: 400px !important;
 }
 
 /* 모바일 기기 세로

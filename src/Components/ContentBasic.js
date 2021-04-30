@@ -4,8 +4,6 @@ import {useParams} from 'react-router-dom'
 
 //영국 리그 페이지
 const ENGLAND='ENGLAND'
-const COPA='COPA'
-
 
 // 어제의 날짜 만들기
 let nowday = new Date();  
@@ -21,9 +19,10 @@ function href(name){
 
 
 const ContentBasic = ({team}) => {
-
+    
+    // 나라별 리스트 
     let {nation}=useParams();
-    console.log(nation);
+    // console.log(nation);
 
     return (
         <>
@@ -32,7 +31,7 @@ const ContentBasic = ({team}) => {
             ({nowtoday})
         <div className="content">
             {team.map(soc =>{
-                if((soc.date).includes(nowtoday)&&(soc.competition.name).includes(COPA))
+                if((soc.date).includes(nowtoday)&&(soc.competition.name).includes(nation))
                 {                  
                         return ( 
     <>
@@ -48,10 +47,10 @@ const ContentBasic = ({team}) => {
                     </h3>
                 
                 </div>
-                <a href={soc.url} ><h4> 하이라이트 보기 📺 </h4></a>
-                <img src={soc.thumbnail}></img>
+                <h4> 하이라이트 보기 📺 </h4>
+                {/* <img src={soc.thumbnail}></img> */}
                 <div className="videoflex">
-                    {/* <div className="video" dangerouslySetInnerHTML={{__html:soc.embed}}></div>   */}
+                    <div className="video" dangerouslySetInnerHTML={{__html:soc.embed}}></div>  
                 </div>
        </div>
        </div>

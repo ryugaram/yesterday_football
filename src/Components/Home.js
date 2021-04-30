@@ -20,7 +20,6 @@ function good(d, s, id) {
 const Home = () => {
     return (
         <div>
-            
              <h1> summarize 
             ({nowtoday})
             </h1>
